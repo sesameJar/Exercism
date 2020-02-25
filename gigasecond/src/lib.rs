@@ -4,6 +4,5 @@ use chrono::{DateTime, TimeZone, Utc};
 pub fn after(start: DateTime<Utc>) -> DateTime<Utc> {
     let mut ts = start.timestamp();
     ts += 10i64.pow(9);
-    let dt = Utc.timestamp(ts, 0);
-    dt
+    Utc.timestamp(ts, 0)
 }
