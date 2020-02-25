@@ -21,7 +21,7 @@ pub fn verse(n: u32) -> String {
 
 pub fn sing(start: u32, end: u32) -> String {
     let mut s = String::new();
-    for i in (end..start+1).rev() {
+    for i in (end..=start).rev() {
         write!(&mut s,"{}\n", verse(i));
     }
     s[0..s.len()-1].to_string()
