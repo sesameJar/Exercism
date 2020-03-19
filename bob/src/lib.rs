@@ -1,13 +1,4 @@
 pub fn reply(message: &str) -> &str {
-    enum Message {
-        Question,
-        Yell,
-        QuestionYell,
-        Nothing,
-        Else,
-    }
-    // println!("{}\n=====111111222222222{}end", message, message.trim());
-
     let v: Vec<char> = message.trim().chars().collect();
     if v.len() == 0 {
         return "Fine. Be that way!";
@@ -32,5 +23,4 @@ pub fn reply(message: &str) -> &str {
     } else {
         return "Whatever.";
     }
-    // message
 }
