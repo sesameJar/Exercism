@@ -9,23 +9,28 @@ pub fn reply(message: &str) -> &str {
     // println!("{}\n=====111111222222222{}end", message, message.trim());
 
     let v: Vec<char> = message.trim().chars().collect();
-    if v.ends_with(&['?']) {
-        if v.iter().any(|x| x.is_lowercase()) {
+    if v.len() == 0 {
+        return "Fine. Be that way!";
+    } else if v.ends_with(&['?']) {
+        if v.iter().filter(|c| c.is_alphabetic()).count() > 0
+            && !v
+                .iter()
+                .filter(|c| c.is_alphabetic())
+                .any(|c| c.is_lowercase())
+        {
+            return "Calm down, I know what I'm doing!";
+        } else {
             return "Sure.";
         }
-        return "Calm down, I know what I'm doing!";
-    } else if v
-        .iter()
-        .filter(|x| x.is_alphabetic())
-        .all(|c| c.is_uppercase())
+    } else if v.iter().filter(|c| c.is_alphabetic()).count() > 0
+        && !v
+            .iter()
+            .filter(|c| c.is_alphabetic())
+            .any(|c| c.is_lowercase())
     {
         return "Whoa, chill out!";
-    } else if v.len()== 0 {
-        
-        return "Fine. Be that way!";
     } else {
         return "Whatever.";
     }
-   
-    message
+    // message
 }
